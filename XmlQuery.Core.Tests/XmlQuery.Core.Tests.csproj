@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataParsers\JsonDataParserTests\when_json_has_attribute.cs" />
+    <Compile Include="Extensions\DataTraverseExtensions.cs" />
+    <Compile Include="DataParsers\JsonDataParserTests\when_json_has_int_attribute.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="DataParsers\JsonDataParserTests\JsonDataParserTestsBase.cs" />
+    <Compile Include="DataParsers\JsonDataParserTests\when_json_has_only_an_empty_leaf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
