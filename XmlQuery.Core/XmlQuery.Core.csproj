@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entities\Attribute.cs" />
     <Compile Include="Entities\Data.cs" />
+    <Compile Include="Entities\DataNotFound.cs" />
     <Compile Include="Entities\Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
