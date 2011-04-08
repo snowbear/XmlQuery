@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using XmlQuery.Entities;
 
@@ -21,35 +22,26 @@ namespace XmlQuery.DataParsers
         public Data Parse(string input)
         {
             var jObject = JObject.Parse(input);
-            var result = new Node {Name = "Data"};
-            var children = ReadNodeChildren(jObject);
-            foreach (var child in children)
-                result.Children.Add(child);
-            return result;
+            return ConvertNode("Data", jObject);
         }
 
-        private static IEnumerable<Data> ReadNodeChildren(JObject jObject)
+        private static Data ConvertNode(string name, JToken jtoken)
         {
-            var children = new List<Data>();
-            foreach (var child in jObject)
+            if (jtoken is JValue)
             {
-                if (child.Value is JValue)
-                {
-                    var attribute = CreateAttribute(child.Key, (JValue) child.Value);
-                    children.Add(attribute);
-                }
-                else if (child.Value is JObject)
-                {
-                    var nestedChildren = ReadNodeChildren((JObject) child.Value);
-                    var node = new Node {Name = child.Key};
-                    foreach (var nestedChild in nestedChildren)
-                        node.Children.Add(nestedChild);
-                    children.Add(node);
-                }
-                else
-                    throw new Exception("Unexpected type: " + child.Value.GetType());
+                return CreateAttribute(name, (JValue)jtoken);
             }
-            return children;
+            if (jtoken is JObject)
+            {
+                var jobject = (JObject) jtoken;
+                return new Node(name, jobject.Cast<KeyValuePair<string, JToken>>().Select(j => ConvertNode(j.Key, j.Value)));
+            }
+            if (jtoken is JArray)
+            {
+                var jarray = (JArray)jtoken;
+                return new Node(name, jarray.Select(j => ConvertNode("Item", j)));
+            }
+            throw new Exception("Unexpected type: " + jtoken.GetType());
         }
 
         private static Data CreateAttribute(string name, JValue jValue)

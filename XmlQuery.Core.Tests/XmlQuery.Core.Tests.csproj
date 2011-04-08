@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataParsers\JsonDataParserTests\when_json_has_array_of_primitive_values.cs" />
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_attribute.cs" />
     <Compile Include="Extensions\DataTraverseExtensions.cs" />
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_int_attribute.cs" />

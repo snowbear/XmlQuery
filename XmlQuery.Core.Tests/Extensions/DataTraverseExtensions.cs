@@ -10,5 +10,11 @@ namespace XmlQuery.Core.Tests.Extensions
             var node = (Node)data;
             return node.Children.First();
         }
+
+        public static Data NthChild(this Data data, int index)
+        {
+            var node = (Node)data;
+            return node.Children.ElementAt(index);
+        }
     }
 }
