@@ -8,14 +8,14 @@ namespace XmlQuery.DataParsers
 {
     public class JsonDataParser
     {
-        private static readonly Dictionary<JTokenType, Func<JValue, Data>> AttributeCreators;
+        private static readonly Dictionary<JTokenType, Func<string, JValue, Data>> AttributeCreators;
 
         static JsonDataParser()
         {
-            AttributeCreators = new Dictionary<JTokenType, Func<JValue, Data>>
+            AttributeCreators = new Dictionary<JTokenType, Func<string, JValue, Data>>
                                     {
-                                        {JTokenType.String, o => new Attribute<string> {Value = (string) o.Value}},
-                                        {JTokenType.Integer, o => new Attribute<int> {Value = (int) (long) o.Value}},
+                                        {JTokenType.String, (name, o) => new DataAttribute<string>(name, (string) o.Value)},
+                                        {JTokenType.Integer, (name, o) => new DataAttribute<int>(name, (int) (long) o.Value)},
                                     };
         }
 
@@ -34,23 +34,22 @@ namespace XmlQuery.DataParsers
             if (jtoken is JObject)
             {
                 var jobject = (JObject) jtoken;
-                return new Node(name, jobject.Cast<KeyValuePair<string, JToken>>().Select(j => ConvertNode(j.Key, j.Value)));
+                return new DataNode(name, jobject.Cast<KeyValuePair<string, JToken>>().Select(j => ConvertNode(j.Key, j.Value)));
             }
             if (jtoken is JArray)
             {
                 var jarray = (JArray)jtoken;
-                return new Node(name, jarray.Select(j => ConvertNode("Item", j)));
+                return new DataNode(name, jarray.Select(j => ConvertNode("Item", j)));
             }
             throw new Exception("Unexpected type: " + jtoken.GetType());
         }
 
         private static Data CreateAttribute(string name, JValue jValue)
         {
-            Func<JValue, Data> attributeCreator;
+            Func<string, JValue, Data> attributeCreator;
             if (!AttributeCreators.TryGetValue(jValue.Type, out attributeCreator))
-                throw new Exception(string.Format("Attribute name: {0}; Unexpected attribute type: {1}", name, jValue.Type.GetType()));
-            var attribute = attributeCreator(jValue);
-            attribute.Name = name;
+                throw new Exception(string.Format("DataAttribute name: {0}; Unexpected attribute type: {1}", name, jValue.Type.GetType()));
+            var attribute = attributeCreator(name, jValue);
             return attribute;
         }
     }

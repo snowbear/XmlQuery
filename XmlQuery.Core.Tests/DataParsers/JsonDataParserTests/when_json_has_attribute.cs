@@ -10,8 +10,8 @@ namespace XmlQuery.Core.Tests.DataParsers.JsonDataParserTests
 
         It should_not_return_null = () => _result.ShouldNotBeNull();
         It result_root_should_be_named_Data = () => _result.Name.ShouldEqual("Data");
-        It result_root_should_be_of_type_Node = () => _result.ShouldBeOfType(typeof(Node));
-        It should_parse_attribute_with_correct_type = () => _result.FirstChild().ShouldBeOfType(typeof(Attribute<string>));
-        It should_parse_attribute_with_correct_value = () => _result.FirstChild().Cast<Attribute<string>>().Value.ShouldEqual("5");
+        It result_root_should_be_of_type_Node = () => _result.ShouldBeOfType(typeof(DataNode));
+        It should_parse_attribute_with_correct_type = () => _result.FirstChild().ShouldBeOfType(typeof(DataAttribute<string>));
+        It should_parse_attribute_with_correct_value = () => _result.FirstChild().Cast<DataAttribute<string>>().Value.ShouldEqual("5");
     }
 }

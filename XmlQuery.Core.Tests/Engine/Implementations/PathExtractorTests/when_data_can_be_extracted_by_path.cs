@@ -15,7 +15,7 @@ namespace XmlQuery.Core.Tests.Engine.Implementations.PathExtractorTests
                     }
                 ");
 
-        Because of = () => _result = new PathExtractor().ExtractSingleValue(_sampleData, new[] {"Leaf", "attribute"});
+        Because of = () => _result = new PathExtractor().ExtractSingleValue(_sampleData, new[] {"leaf", "attribute"});
 
         It should_extract_correct_value = () => _result.ShouldEqual(5);
     }

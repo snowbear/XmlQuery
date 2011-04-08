@@ -3,15 +3,15 @@ using System.Linq;
 
 namespace XmlQuery.Entities
 {
-    public class Node : Data
+    public class DataNode : Data
     {
         private readonly ICollection<Data> _children = new List<Data>();
 
-        public ICollection<Data> Children { get { return _children; } }
+        public IEnumerable<Data> Children { get { return _children; } }
 
-        public Node(string name, IEnumerable<Data> children)
+        public DataNode(string name, IEnumerable<Data> children)
+            : base(name)
         {
-            Name = name;
             _children = children.ToList();
         }
     }

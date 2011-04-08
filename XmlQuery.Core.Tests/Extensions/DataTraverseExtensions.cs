@@ -7,13 +7,13 @@ namespace XmlQuery.Core.Tests.Extensions
     {
         public static Data FirstChild(this Data data)
         {
-            var node = (Node)data;
+            var node = (DataNode)data;
             return node.Children.First();
         }
 
         public static Data NthChild(this Data data, int index)
         {
-            var node = (Node)data;
+            var node = (DataNode)data;
             return node.Children.ElementAt(index);
         }
     }
