@@ -44,7 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataParsers\JsonDataParser.cs" />
+    <Compile Include="Engine\Implementations\CompareType.cs" />
+    <Compile Include="Engine\Implementations\ComparePredicate.cs" />
+    <Compile Include="Engine\Implementations\IDataSelector.cs" />
     <Compile Include="Engine\Implementations\PathExtractor.cs" />
+    <Compile Include="Engine\Implementations\SelectionOperator.cs" />
+    <Compile Include="Engine\IPredicate.cs" />
     <Compile Include="Entities\DataAttribute.cs" />
     <Compile Include="Entities\Data.cs" />
     <Compile Include="Entities\DataNotFound.cs" />

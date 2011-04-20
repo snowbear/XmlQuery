@@ -2,7 +2,7 @@
 using XmlQuery.DataParsers;
 using XmlQuery.Engine.Implementations;
 
-namespace XmlQuery.Core.Tests.Engine.Implementations.PathExtractorTests
+namespace XmlQuery.Core.Tests.Engine.PathExtractorTests
 {
     public class when_data_can_be_extracted_by_path : PathExtractorTestsBase
     {

@@ -3,7 +3,7 @@ using Machine.Specifications;
 using XmlQuery.DataParsers;
 using XmlQuery.Engine.Implementations;
 
-namespace XmlQuery.Core.Tests.Engine.Implementations.PathExtractorTests
+namespace XmlQuery.Core.Tests.Engine.PathExtractorTests
 {
     public class when_data_by_path_is_ambiguous : PathExtractorTestsBase
     {

@@ -1,6 +1,6 @@
 using XmlQuery.Entities;
 
-namespace XmlQuery.Core.Tests.Engine.Implementations.PathExtractorTests
+namespace XmlQuery.Core.Tests.Engine.PathExtractorTests
 {
     public class PathExtractorTestsBase
     {

@@ -35,6 +35,9 @@
     <Reference Include="Machine.Specifications">
       <HintPath>..\Libraries\Machine.Specifications\Machine.Specifications.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\Libraries\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,10 +49,15 @@
   <ItemGroup>
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_array_of_primitive_values.cs" />
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_attribute.cs" />
-    <Compile Include="Engine\Implementations\PathExtractorTests\PathExtractorTests.cs" />
-    <Compile Include="Engine\Implementations\PathExtractorTests\when_data_by_path_is_ambiguous.cs" />
-    <Compile Include="Engine\Implementations\PathExtractorTests\when_data_can_be_extracted_by_path.cs" />
-    <Compile Include="Engine\Implementations\PathExtractorTests\when_there_is_no_data_by_path.cs" />
+    <Compile Include="Engine\ComparePredicateTests\ComparePredicateTestsBase.cs" />
+    <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_equal_to_second.cs" />
+    <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_greater_than_second.cs" />
+    <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_less_than_second.cs" />
+    <Compile Include="Engine\PathExtractorTests\PathExtractorTests.cs" />
+    <Compile Include="Engine\PathExtractorTests\when_data_by_path_is_ambiguous.cs" />
+    <Compile Include="Engine\PathExtractorTests\when_data_can_be_extracted_by_path.cs" />
+    <Compile Include="Engine\PathExtractorTests\when_there_is_no_data_by_path.cs" />
+    <Compile Include="Engine\selection_operator_tests.cs" />
     <Compile Include="Extensions\DataTraverseExtensions.cs" />
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_int_attribute.cs" />
     <Compile Include="Extensions\Extensions.cs" />

@@ -3,7 +3,7 @@ using XmlQuery.DataParsers;
 using XmlQuery.Engine.Implementations;
 using XmlQuery.Entities;
 
-namespace XmlQuery.Core.Tests.Engine.Implementations.PathExtractorTests
+namespace XmlQuery.Core.Tests.Engine.PathExtractorTests
 {
     public class when_there_is_no_data_by_path : PathExtractorTestsBase
     {
