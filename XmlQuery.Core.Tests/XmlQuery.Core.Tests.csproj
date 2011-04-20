@@ -53,9 +53,12 @@
     <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_equal_to_second.cs" />
     <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_greater_than_second.cs" />
     <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_first_argument_is_less_than_second.cs" />
+    <Compile Include="Engine\ComparePredicateTests\StringCompareTests\when_trying_to_create_predicate_with_unexpected_CompareType.cs" />
     <Compile Include="Engine\PathExtractorTests\PathExtractorTests.cs" />
     <Compile Include="Engine\PathExtractorTests\when_data_by_path_is_ambiguous.cs" />
     <Compile Include="Engine\PathExtractorTests\when_data_can_be_extracted_by_path.cs" />
+    <Compile Include="Engine\PathExtractorTests\when_path_points_to_DataNode_instance.cs" />
+    <Compile Include="Engine\PathExtractorTests\when_path_resolves_into_attribute_before_end_of_path.cs" />
     <Compile Include="Engine\PathExtractorTests\when_there_is_no_data_by_path.cs" />
     <Compile Include="Engine\selection_operator_tests.cs" />
     <Compile Include="Extensions\DataTraverseExtensions.cs" />

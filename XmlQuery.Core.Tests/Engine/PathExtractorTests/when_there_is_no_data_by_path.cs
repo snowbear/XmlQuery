@@ -18,6 +18,6 @@ namespace XmlQuery.Core.Tests.Engine.PathExtractorTests
 
         Because of = () => _result = new PathExtractor().ExtractSingleValue(_sampleData, new[] {"Leaf", "attribute"});
 
-        It should_extract_correct_value = () => _result.ShouldEqual(DataNotFound.Instance);
+        It should_return_DataNotFound = () => _result.ShouldEqual(DataNotFound.Instance);
     }
 }
