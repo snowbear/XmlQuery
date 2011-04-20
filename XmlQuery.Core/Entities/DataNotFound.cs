@@ -7,16 +7,5 @@ namespace XmlQuery.Entities
         private DataNotFound()
         {
         }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(obj, null)) return false;
-            return obj.GetType() == typeof(DataNotFound);
-        }
-
-        public override int GetHashCode()
-        {
-            return 0;
-        }
     }
 }

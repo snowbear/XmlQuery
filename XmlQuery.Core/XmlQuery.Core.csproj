@@ -54,7 +54,6 @@
     <Compile Include="Entities\Data.cs" />
     <Compile Include="Entities\DataNotFound.cs" />
     <Compile Include="Entities\DataNode.cs" />
-    <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
