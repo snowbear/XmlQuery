@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NUnitExtension.DataDriven</name>
+    </assembly>
+    <members>
+        <member name="T:NUnitExtension.DataDriven.DataSourceAttribute">
+            <summary>
+            <c>TestFactoryAttribute</c> is used to mark the method as an data source.
+            </summary>
+        </member>
+        <member name="T:NUnitExtension.DataDriven.TestCaseItem">
+            <summary>
+            The <c>TestCaseItem</c> class represents a set of arguments
+            and a set of constraints info to be used for a parameterized
+            test case.
+            </summary>
+        </member>
+        <member name="M:NUnitExtension.DataDriven.TestCaseItem.#ctor">
+            <summary>
+            Initializes a new instance of the <c>TestCaseItem</c> class.
+            </summary>
+        </member>
+        <member name="M:NUnitExtension.DataDriven.TestCaseItem.#ctor(System.Object[])">
+            <summary>
+            Initializes a new instance of the <c>TestCaseItem</c> class with arguments.
+            </summary>
+        </member>
+        <member name="M:NUnitExtension.DataDriven.TestCaseItem.That(NUnit.Framework.Constraints.Constraint)">
+            <summary>
+            Add a constraint.
+            </summary>
+            <param name="constraint">The constraint.</param>
+            <returns>This <c>TestCaseItem</c>.</returns>
+        </member>
+        <member name="P:NUnitExtension.DataDriven.TestCaseItem.Arguments">
+            <summary>
+            Get arguments.
+            </summary>
+        </member>
+        <member name="P:NUnitExtension.DataDriven.TestCaseItem.Constraints">
+            <summary>
+            Get constraints list.
+            </summary>
+        </member>
+        <member name="T:NUnitExtension.DataDriven.DataFactoryAttribute">
+            <summary>
+            <c>DataFactoryAttribute</c> indicates the source to be used to
+            provide test cases for a test method.
+            </summary>
+        </member>
+        <member name="M:NUnitExtension.DataDriven.DataFactoryAttribute.#ctor(System.Type,System.Object[])">
+            <summary>
+            Initializes a new instance of the <c>DataFactoryAttribute</c> class with a type of the factory and arguments used by the factory.
+            </summary>
+            <param name="factoryType">The test case factory.</param>
+            <param name="args">The arguments used by the factory to create test cases.</param>
+        </member>
+        <member name="M:NUnitExtension.DataDriven.DataFactoryAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <c>DataFactoryAttribute</c> class with a type of the factory.
+            </summary>
+            <param name="factoryType">The test case factory.</param>
+        </member>
+        <member name="P:NUnitExtension.DataDriven.DataFactoryAttribute.FactoryType">
+            <summary>
+            Get the type of factory.
+            </summary>
+        </member>
+        <member name="P:NUnitExtension.DataDriven.DataFactoryAttribute.Arguments">
+            <summary>
+            Get the arguments for the factory to create test cases.
+            </summary>
+        </member>
+    </members>
+</doc>

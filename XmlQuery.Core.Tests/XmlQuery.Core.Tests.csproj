@@ -12,6 +12,7 @@
     <AssemblyName>XmlQuery.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,31 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>169</NoWarn>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>2</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +60,13 @@
   <ItemGroup>
     <Reference Include="Machine.Specifications">
       <HintPath>..\Libraries\Machine.Specifications\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.11089, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\NUnit\bin\net-2.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnitExtension.DataDriven">
+      <HintPath>..\Libraries\NUnit\extensions\DataDriven\NUnitExtension.DataDriven.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\Libraries\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
@@ -60,6 +93,11 @@
     <Compile Include="Engine\PathExtractorTests\when_path_points_to_DataNode_instance.cs" />
     <Compile Include="Engine\PathExtractorTests\when_path_resolves_into_attribute_before_end_of_path.cs" />
     <Compile Include="Engine\PathExtractorTests\when_there_is_no_data_by_path.cs" />
+    <Compile Include="Engine\QueryTokenizerTests.cs" />
+    <Compile Include="Extensions\AssertExtensions.cs" />
+    <Compile Include="Extensions\CollectionEquivalentResolveConstraint.cs" />
+    <Compile Include="TestData.cs" />
+    <Compile Include="Engine\TokenComparer.cs" />
     <Compile Include="Engine\selection_operator_tests.cs" />
     <Compile Include="Extensions\DataTraverseExtensions.cs" />
     <Compile Include="DataParsers\JsonDataParserTests\when_json_has_int_attribute.cs" />

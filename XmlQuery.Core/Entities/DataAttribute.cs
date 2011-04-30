@@ -1,9 +1,13 @@
-﻿namespace XmlQuery.Entities
+﻿using System.Diagnostics.Contracts;
+
+namespace XmlQuery.Entities
 {
     public class DataAttribute<T> : DataAttribute
     {
         public DataAttribute(string name, T value) : base(name)
         {
+            Contract.Requires(name != null);
+
             Value = value;
         }
 
@@ -19,6 +23,7 @@
     {
         protected DataAttribute(string name) : base(name)
         {
+            Contract.Requires(name != null);
         }
 
         public abstract object GetValue();

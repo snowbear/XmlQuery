@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using XmlQuery.Entities;
@@ -21,12 +22,19 @@ namespace XmlQuery.DataParsers
 
         public Data Parse(string input)
         {
+            Contract.Requires(input != null);
+
             var jObject = JObject.Parse(input);
+            Contract.Assume(jObject != null);
+
             return ConvertNode("Data", jObject);
         }
 
         private static Data ConvertNode(string name, JToken jtoken)
         {
+            Contract.Requires(name != null);
+            Contract.Requires(jtoken != null);
+
             if (jtoken is JValue)
             {
                 return CreateAttribute(name, (JValue)jtoken);
@@ -46,9 +54,15 @@ namespace XmlQuery.DataParsers
 
         private static Data CreateAttribute(string name, JValue jValue)
         {
+            Contract.Requires(name != null);
+            Contract.Requires(jValue != null);
+
             Func<string, JValue, Data> attributeCreator;
             if (!AttributeCreators.TryGetValue(jValue.Type, out attributeCreator))
                 throw new Exception(string.Format("DataAttribute name: {0}; Unexpected attribute type: {1}", name, jValue.Type.GetType()));
+
+            Contract.Assume(attributeCreator != null);
+
             var attribute = attributeCreator(name, jValue);
             return attribute;
         }

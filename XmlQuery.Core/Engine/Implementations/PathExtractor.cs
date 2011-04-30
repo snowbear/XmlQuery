@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using XmlQuery.Entities;
 
@@ -9,6 +10,9 @@ namespace XmlQuery.Engine.Implementations
     {
         public object ExtractSingleValue(Data root, IEnumerable<string> path)
         {
+            Contract.Requires(root != null);
+            Contract.Requires(path != null);
+
             var currentNode = root;
             foreach (var pathElement in path)
             {

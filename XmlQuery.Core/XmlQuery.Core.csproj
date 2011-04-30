@@ -12,6 +12,7 @@
     <AssemblyName>XmlQuery</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,31 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>True</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>2</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,17 +69,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Libraries\CodeContracts\ContractExtensions.cs">
+      <Link>ContractExtensions.cs</Link>
+    </Compile>
     <Compile Include="DataParsers\JsonDataParser.cs" />
     <Compile Include="Engine\Implementations\CompareType.cs" />
     <Compile Include="Engine\Implementations\ComparePredicate.cs" />
     <Compile Include="Engine\Implementations\IDataSelector.cs" />
     <Compile Include="Engine\Implementations\PathExtractor.cs" />
+    <Compile Include="Engine\Implementations\QueryTokenizer.cs" />
     <Compile Include="Engine\Implementations\SelectionOperator.cs" />
     <Compile Include="Engine\IPredicate.cs" />
+    <Compile Include="Engine\IQueryTokenizer.cs" />
     <Compile Include="Entities\DataAttribute.cs" />
     <Compile Include="Entities\Data.cs" />
     <Compile Include="Entities\DataNotFound.cs" />
     <Compile Include="Entities\DataNode.cs" />
+    <Compile Include="Entities\Tokens\DotToken.cs" />
+    <Compile Include="Entities\Tokens\IdentifierToken.cs" />
+    <Compile Include="Entities\Tokens\Keyword.cs" />
+    <Compile Include="Entities\Tokens\KeywordToken.cs" />
+    <Compile Include="Entities\Tokens\NumberLiteralToken.cs" />
+    <Compile Include="Entities\Tokens\StringLiteralToken.cs" />
+    <Compile Include="Entities\Tokens\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

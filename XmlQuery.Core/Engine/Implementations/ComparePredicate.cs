@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using XmlQuery.Entities;
 
@@ -13,6 +14,9 @@ namespace XmlQuery.Engine.Implementations
 
         public ComparePredicate(IDataSelector firstArgumentSelector, IDataSelector secondArgumentSelector, CompareType type)
         {
+            Contract.Requires(firstArgumentSelector != null);
+            Contract.Requires(secondArgumentSelector != null);
+
             _firstArgumentSelector = firstArgumentSelector;
             _secondArgumentSelector = secondArgumentSelector;
 
@@ -43,6 +47,14 @@ namespace XmlQuery.Engine.Implementations
             IComparer comparer = new Comparer(CultureInfo.CurrentCulture);
             int compareResult = comparer.Compare(firstArgument, secondArgument);
             return _checkComparisonResult(compareResult);
+        }
+
+        [ContractInvariantMethod]
+        private void ObjectInvariant()
+        {
+            Contract.Invariant(_firstArgumentSelector != null);
+            Contract.Invariant(_secondArgumentSelector != null);
+            Contract.Invariant(_checkComparisonResult != null);
         }
     }
 }
