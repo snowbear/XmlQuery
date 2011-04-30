@@ -85,7 +85,7 @@ namespace XmlQuery.Engine.Implementations
                 .Count();
 
             Contract.Assume(numberCharactersCount > 0);
-            Contract.Assume(numberCharactersCount < query.Length - indexToParse);
+            Contract.Assume(numberCharactersCount <= query.Length - indexToParse);
 
             var numberLiteralValue = double.Parse(query.Substring(indexToParse, numberCharactersCount), NumberStyles.AllowDecimalPoint);
             var numberLiteral = new NumberLiteralToken(numberLiteralValue);
@@ -105,7 +105,7 @@ namespace XmlQuery.Engine.Implementations
                 .Count();
 
             Contract.Assume(wordCharactersCount > 0);
-            Contract.Assume(wordCharactersCount < query.Length - indexToParse);
+            Contract.Assume(wordCharactersCount <= query.Length - indexToParse);
 
             var word = query.Substring(indexToParse, wordCharactersCount);
 

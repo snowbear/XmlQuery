@@ -19,7 +19,6 @@ namespace XmlQuery.Core.Tests.Engine
                     TestData.Create("\"Hello\"", new Token[] {new StringLiteralToken("Hello")}),
 
                     TestData.Create("15", new Token[] {new NumberLiteralToken(15)}),
-                    TestData.Create("15 \"", new Token[] {new NumberLiteralToken(15)}),
                     TestData.Create("1.4", new Token[] {new NumberLiteralToken(1.4)}),
 
                     TestData.Create("select", new Token[] {new KeywordToken(Keyword.Select)}),
